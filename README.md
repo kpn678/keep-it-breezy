@@ -2,7 +2,7 @@
 
 ![Success Baby Poster](readme-imgs/SuccessBaby.png)
 
-## Table of Contents [create an anchor](#anchors-in-markdown)
+## Table of Contents
 - [Introduction](#Introduction)
 - [Project Information](#Project-Information)
 - [Set Up](#Set-Up)

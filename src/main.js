@@ -16,6 +16,7 @@ var nevermindButton = document.querySelector(".show-main");
 var backToMainButton = document.querySelector(".back-to-main");
 var showMyPosterButton = document.querySelector(".make-poster");
 var saveThisPosterButton = document.querySelector(".save-poster");
+
 // //input
 var inputUrl = document.querySelector("#poster-image-url");
 var inputTitle = document.querySelector("#poster-title");
@@ -124,6 +125,7 @@ var currentPoster = new Poster();
 //
 // // event listeners go here 👇
 window.addEventListener('load', randomizePoster);
+window.addEventListener('dblclick', deletePoster);
 randomButton.addEventListener('click', randomizePoster);
 viewSavedPostersButton.addEventListener('click', showSavedPostersPage);
 makePosterButton.addEventListener('click', displayFormView);
@@ -138,6 +140,12 @@ saveThisPosterButton.addEventListener('click', addToSavedPosters);
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
+
+function deletePoster(){
+  var index = savedPosters.indexOf(parseInt(event.srcElement.id));
+  savedPosters.splice(index, 1);
+  displaySavedPosters();
+}
 
 function randomizePoster() {
   currentPoster = new Poster(images[getRandomIndex(images)],
@@ -179,7 +187,7 @@ function addToSavedPosters(){
 
     if(savedPosters.includes(currentPoster)){
     var index = savedPosters.indexOf(currentPoster);
-    savedPoster.splice(index, 1);
+    savedPosters.splice(index, 1);
     }
 
     savedPosters.push(currentPoster);
@@ -195,7 +203,7 @@ function displaySavedPosters() {
   var grid = "";
     for (var i = 0; i < savedPosters.length; i++) {
       grid += `<article class="mini-poster">
-      <img class="poster-img" src=${savedPosters[i].imageUrl} alt="nothin' to see here">
+      <img class="poster-img" src=${savedPosters[i].imageUrl} id=${savedPosters[i].id} alt="nothin' to see here">
       <h2 class="poster-title">"${savedPosters[i].title}"</h2>
       <h4 class="poster-quote">"${savedPosters[i].quote}"</h4>
       </article>`;

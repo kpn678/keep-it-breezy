@@ -1,27 +1,27 @@
-// query selector variables go here 👇
-//poster elements👇
+// // query selector variables go here 👇
+// //poster elements👇
 var posterImg = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
-//page elements 👇
-var mainPoster = document.querySelector(".main-poster");
+// //page elements 👇
+var mainPosterPage = document.querySelector(".main-poster");
 var savedPosterPage = document.querySelector(".saved-posters");
-var posterForm = document.querySelector(".poster-form");
-var savedPosterGrid = document.querySelector(".saved-posters-grid");
-//buttons 👇
+var posterFormPage = document.querySelector(".poster-form");
+// var savedPosterGrid = document.querySelector(".saved-posters-grid");
+// //buttons 👇
 var randomButton = document.querySelector(".show-random");
-var savedPosterButton = document.querySelector(".show-saved");
+var viewSavedPostersButton = document.querySelector(".show-saved");
 var makePosterButton = document.querySelector(".show-form");
 var nevermindButton = document.querySelector(".show-main");
 var backToMainButton = document.querySelector(".back-to-main");
 var showMyPosterButton = document.querySelector(".make-poster");
 var saveThisPosterButton = document.querySelector(".save-poster");
-//input
+// //input
 var inputUrl = document.querySelector("#poster-image-url");
 var inputTitle = document.querySelector("#poster-title");
 var inputQuote = document.querySelector("#poster-quote");
-
-// we've provided you with some data to work with 👇
+//
+// // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -121,54 +121,57 @@ var quotes = [
 ];
 var savedPosters = [];
 var currentPoster = new Poster();
-
-// event listeners go here 👇
+//
+// // event listeners go here 👇
 window.addEventListener('load', randomizePoster);
 randomButton.addEventListener('click', randomizePoster);
-savedPosterButton.addEventListener('click', showSavedPoster);
+viewSavedPostersButton.addEventListener('click', showSavedPostersPage);
 makePosterButton.addEventListener('click', displayFormView);
 nevermindButton.addEventListener('click', returnToMain);
 backToMainButton.addEventListener('click', returnToMain);
+//iteration 2 V
 showMyPosterButton.addEventListener('click', submitPosterInfo);
 saveThisPosterButton.addEventListener('click', addToSavedPosters);
-
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
+//
+// // functions and event handlers go here 👇
+// // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
 function randomizePoster() {
-  var image = images[getRandomIndex(images)];
-  var title = titles[getRandomIndex(titles)];
-  var quote = quotes[getRandomIndex(quotes)];
-  currentPoster.updatePosterInfo(image, title, quote);
-  initializePoster();
+  posterImg.src = images[getRandomIndex(images)];
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+  // currentPoster.updatePosterInfo(image, title, quote);
+  // initializePoster();
 };
-
-function initializePoster() {
-  posterImg.src = currentPoster.imageUrl;
-  posterTitle.innerText = currentPoster.title;
-  posterQuote.innerText = currentPoster.quote;
-};
-
+//
+// function initializePoster() {
+//   posterImg.src = currentPoster.imageUrl;
+//   posterTitle.innerText = currentPoster.title;
+//   posterQuote.innerText = currentPoster.quote;
+// };
+//
 function submitPosterInfo() {
   event.preventDefault();
   getUserInput();
 };
-
+//
 function getUserInput() {
   var imageUrl = inputUrl.value;
   var title = inputTitle.value;
   var quote = inputQuote.value;
-  currentPoster.updatePosterInfo(imageUrl, title, quote);
   addToArray(imageUrl, title, quote);
+  displayUserPoster(imageUrl, title, quote);
 };
-
+//
 function displayUserPoster(url, title, quote) {
-  posterImg.src = url;
-  posterTitle.innerText = title;
-  posterQuote.innerText = quote;
+  currentPoster = new Poster(url, title, quote);
+  console.log(currentPoster);
+  posterImg.src = currentPoster.imageUrl;
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
   returnToMain();
 };
 
@@ -177,37 +180,38 @@ function addToArray(imageUrl, title, quote) {
   titles.push(title);
   quotes.push(quote);
 };
-
+//
 function addToSavedPosters(){
     savedPosters.push(currentPoster);
-    displaySavedPosters();
+    console.log(savedPosters[0]);
+    // displaySavedPosters();
 }
 
-function showSavedPoster() {
-  mainPoster.classList.add("hidden");
+function showSavedPostersPage() {
+  mainPosterPage.classList.add("hidden");
   savedPosterPage.classList.remove("hidden");
 };
-
-function displaySavedPosters(){
-    var newElement = document.createElement("article");
-    newElement.classList.add("mini-poster");
-    newElement.innerHTML = `
-      <img class="poster-img" src="${currentPoster.imageUrl}" alt="nothin' to see here">
-      <h2 class="poster-title">"${currentPoster.title}"</h2>
-      <h4 class="poster-quote">"${currentPoster.quote}"</h4>
-    `;
-    savedPosterGrid.appendChild(newElement);
-}
-
+//
+// function displaySavedPosters(){
+//     var newElement = document.createElement("article");
+//     newElement.classList.add("mini-poster");
+//     newElement.innerHTML = `
+//       <img class="poster-img" src="${currentPoster.imageUrl}" alt="nothin' to see here">
+//       <h2 class="poster-title">"${currentPoster.title}"</h2>
+//       <h4 class="poster-quote">"${currentPoster.quote}"</h4>
+//     `;
+//     savedPosterGrid.appendChild(newElement);
+// }
+//
 function displayFormView() {
-  posterForm.classList.remove("hidden");
-  mainPoster.classList.add("hidden");
+  posterFormPage.classList.remove("hidden");
+  mainPosterPage.classList.add("hidden");
 };
-
+//
 function returnToMain() {
-  mainPoster.classList.remove("hidden");
-  if(!posterForm.classList.contains("hidden")){
-    posterForm.classList.add("hidden");
+  mainPosterPage.classList.remove("hidden");
+  if(!posterFormPage.classList.contains("hidden")){
+    posterFormPage.classList.add("hidden");
   } else if(!savedPosterPage.classList.contains("hidden")){
     savedPosterPage.classList.add("hidden");
   }

@@ -184,9 +184,7 @@ function addToSavedPosters(){
 
     savedPosters.push(currentPoster);
 }
-//create a for loop
-//if the array at the current index does not contain the current poster
-//then add that poster to the array
+
 function showSavedPostersPage() {
   mainPosterPage.classList.add("hidden");
   savedPosterPage.classList.remove("hidden");

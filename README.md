@@ -1,6 +1,10 @@
-# Hang In There
+# Keep It Breezy
 
-A boilerplate repo. 
+https://turingschool.slack.com/files/U0327VCBG59/F03A8AFM4CR/screen_shot_2022-04-03_at_8.48.38_am.png
+
+## Introduction
+Keep It Breezy is an HTML with functions to create your very own motivational poster, whether with information
+from user input or with a built-in randomize function. You can then save posters, add new ones, and delete as you wish.
 
 ## Set Up
 

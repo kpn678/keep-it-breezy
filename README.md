@@ -41,7 +41,7 @@ Please check out our published page [here](https://kpn678.github.io/keep-it-bree
 
 ## Reflections
 #### Blue
-![bluesclues](https://user-images.githubusercontent.com/99382481/161440474-42a9845c-3d80-402f-b6fc-2a270e78ca50.png=250x250))
+![bluesclues](https://user-images.githubusercontent.com/99382481/161440474-42a9845c-3d80-402f-b6fc-2a270e78ca50.png))
 At the beginning of the project I would read the spec for an iteration and think about the functions I would need. I would automatically jump to make my code dynamic without testing to make sure a hard coded version worked. This caused a lot of issues and lost time throughout the project. I called my brother-in-law to ask how he goes about developing his code for apps.  After talking to him I discovered that he starts with hardcoding, and using variables to make sure the UI works first. He switches functions to dynamic code as needed. I tried to keep that in mind as we continued through the project.  I think the project iterations also try to have you go in this direction.  By not introducing the poster class until later in the project it’s easier to troubleshoot why new functionality might be buggy.
 
 I learned that being tired can make you make silly syntax mistakes, add extra s’s and so on.  Sometimes all it takes to catch a mistake is taking a break and going through to make sure variable names match up and there are no stray semi-colons. Thankfully my project partner had a better eye for this and was able to help find these mistakes in driver-navigator.
@@ -49,7 +49,7 @@ I learned that being tired can make you make silly syntax mistakes, add extra s�
 The dev tools were extremely helpful throughout this. We were able to find out that “hidden” is a separate class by pulling up the poster-form classList. This led us to look at the css document and find that class, giving us the information we needed to hide views.
 
 #### Kristy
-![kristy-nguyen](https://user-images.githubusercontent.com/99382481/161440480-8d940449-e64f-45cc-8e93-54b9a0fe0b7c.png=250x250))
+![kristy-nguyen](https://user-images.githubusercontent.com/99382481/161440480-8d940449-e64f-45cc-8e93-54b9a0fe0b7c.png))
 Overall, this project was an excellent learning experience. It felt hard at times for various reasons. One reason was because there were many things we didn't know, so we had to Google search often as well as reach out to our cohort mates. Another reason was when the code broke or wasn't functional, it was hard to pinpoint down the exact reason why, and it turned into an unproductive struggle at times. It surely didn't help that we didn't always take breaks at the right time or frequently enough.
 
 There were many lessons learned, not just about the content, but also, about how to work well in a team in the context of a tech workflow. My project partner was great at communicating with me and explaining concepts I needed further elaboration on. I am proud of the work we accomplished. As we learn more and more, I hope to relook at this project one day and see different, possibly even cleaner ways of accomplishing the tasks each iteration asked for.

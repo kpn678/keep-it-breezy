@@ -138,16 +138,9 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-function deletePoster(){
-  var index = savedPosters.indexOf(parseInt(event.srcElement.id));
-  savedPosters.splice(index, 1);
-  displaySavedPosters();
-};
-
 function randomizePoster() {
   currentPoster = new Poster(images[getRandomIndex(images)],
-                            titles[getRandomIndex(titles)],
-                            quotes[getRandomIndex(quotes)]);
+  titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
   posterImg.src = currentPoster.imageUrl;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
@@ -181,18 +174,22 @@ function addToArray(imageUrl, title, quote) {
 };
 
 function addToSavedPosters(){
-
-    if(savedPosters.includes(currentPoster)){
+  if(savedPosters.includes(currentPoster)){
     var index = savedPosters.indexOf(currentPoster);
     savedPosters.splice(index, 1);
-    }
-
-    savedPosters.push(currentPoster);
+  }
+  savedPosters.push(currentPoster);
 };
 
 function showSavedPostersPage() {
   mainPosterPage.classList.add("hidden");
   savedPosterPage.classList.remove("hidden");
+  displaySavedPosters();
+};
+
+function deletePoster(){
+  var index = savedPosters.indexOf(parseInt(event.srcElement.id));
+  savedPosters.splice(index, 1);
   displaySavedPosters();
 };
 

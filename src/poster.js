@@ -6,9 +6,4 @@ class Poster {
     this.title = title;
     this.quote = quote;
   }
-  // updatePosterInfo(url, heading, saying) {
-  //   this.imageUrl = url;
-  //   this.title = heading;
-  //   this.quote = saying;
-  // }
-}
+};
